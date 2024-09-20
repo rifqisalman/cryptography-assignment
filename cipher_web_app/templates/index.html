@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cipher Encryption/Decryption</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"
+    />
+    <style>
+      body {
+        margin: 50px;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+      }
+      textarea {
+        width: 100%;
+      }
+      input[type="file"] {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Quiz Kriptografi</h2>
+
+      <label for="method">Pilih Cipher:</label>
+      <select id="method" name="method">
+        <option value="Vigenere">Vigenere Cipher</option>
+        <option value="Playfair">Playfair Cipher</option>
+        <option value="Hill">Hill Cipher</option>
+      </select>
+
+      <label for="text">Masukkan Teks:</label>
+      <textarea id="text" rows="6"></textarea>
+
+      <label for="key">Masukkan Kunci (min 12 karakter):</label>
+      <input type="text" id="key" name="key" />
+
+      <label for="fileInput">Atau Unggah File (.txt):</label>
+      <input type="file" id="fileInput" accept=".txt" />
+
+      <button id="encryptBtn">Enkripsi</button>
+      <button id="decryptBtn">Dekripsi</button>
+
+      <h3>Hasil:</h3>
+      <textarea id="result" rows="6" readonly></textarea>
+    </div>
+
+    <script>
+      const encryptBtn = document.getElementById("encryptBtn");
+      const decryptBtn = document.getElementById("decryptBtn");
+      const fileInput = document.getElementById("fileInput");
+      const method = document.getElementById("method");
+      const text = document.getElementById("text");
+      const key = document.getElementById("key");
+      const result = document.getElementById("result");
+
+      // Fungsi untuk membaca file .txt
+      fileInput.addEventListener("change", function () {
+        const file = fileInput.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            text.value = e.target.result;
+          };
+          reader.readAsText(file);
+        }
+      });
+
+      // Fungsi untuk memproses permintaan enkripsi atau dekripsi
+      function processCipher(action) {
+        const data = {
+          method: method.value,
+          text: text.value,
+          key: key.value,
+          action: action,
+        };
+
+        fetch("/process", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.error) {
+              alert(data.error);
+            } else {
+              result.value = data.result;
+            }
+          });
+      }
+
+      // Event listener untuk tombol enkripsi dan dekripsi
+      encryptBtn.addEventListener("click", function () {
+        processCipher("encrypt");
+      });
+
+      decryptBtn.addEventListener("click", function () {
+        processCipher("decrypt");
+      });
+    </script>
+  </body>
+</html>
