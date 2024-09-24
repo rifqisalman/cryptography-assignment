@@ -14,5 +14,6 @@ alur kerja aplikasi :<br>
 5. tekan tombol enkripsi atau dekripsi tergantung kebutuhan<br>
 6. selesai<br>
 
-note : - untuk Hill Cipher kunci harus kelipatan pangkat 2 yang dimana minimal 16 karakter<br>
-       - untuk dekripsi Hill Cipher masih error
+note : 
+- untuk Hill Cipher kunci harus kelipatan pangkat 2 yang dimana minimal 16 karakter<br>
+- untuk dekripsi Hill Cipher masih error
