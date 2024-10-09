@@ -13,6 +13,7 @@ application workflow: <br>
 4. enter the key (minimum 12 characters) <br>
 5. press the encryption or decryption button depending on your needs <br>
 6. done <br>
+
 note :
 - for Hill Cipher the key must be a multiple of the power of 2, which is at least 16 characters<br>
 - for Hill Cipher decryption there is still an error
