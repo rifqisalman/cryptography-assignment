@@ -1,19 +1,18 @@
-# Membuat aplikasi web untuk mengenkripsi dan dekripsi menggunakan metode Vigenere Cipher, Playfair Cipher, dan Hill Cipher<br>
+# A web application to encrypt and decrypt using Vigenere Cipher, Playfair Cipher, and Hill Cipher methods.<br>
 
-cara membuka aplikasi :<br>
-1. buka terminal dengan direktori file code<br>
-2. run aplikasi dengan mengetik "python app.py" di terminal<br>
-3. buka aplikasi dengan mengcopy alamat situs ke browser<br>
-4. selesai<br>
-   
-alur kerja aplikasi :<br>
-1. pilih metode yang diinginkan<br>
-2. masukkan text yang ingin dienkripsi atau dekripsi<br>
-3. jika ingin mengupload file txt tekan upload file<br>
-4. masukkan key (minimal 12 karakter)<br>
-5. tekan tombol enkripsi atau dekripsi tergantung kebutuhan<br>
-6. selesai<br>
+how to open the application: <br>
+1. open the terminal with the code file directory <br>
+2. run the application by typing "python app.py" in the terminal <br>
+3. open the application by copying the site address to the browser <br>
+4. done <br>
 
-note : 
-- untuk Hill Cipher kunci harus kelipatan pangkat 2 yang dimana minimal 16 karakter<br>
-- untuk dekripsi Hill Cipher masih error
+application workflow: <br>
+1. select the desired method <br>
+2. enter the text you want to encrypt or decrypt <br>
+3. if you want to upload a txt file, press upload file <br>
+4. enter the key (minimum 12 characters) <br>
+5. press the encryption or decryption button depending on your needs <br>
+6. done <br>
+note :
+- for Hill Cipher the key must be a multiple of the power of 2, which is at least 16 characters<br>
+- for Hill Cipher decryption there is still an error
